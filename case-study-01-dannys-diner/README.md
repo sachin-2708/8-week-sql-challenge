@@ -1,4 +1,6 @@
 # Case Study 1 – Danny’s Diner
+<img width="1080" height="1080" alt="1" src="https://github.com/user-attachments/assets/aef241d7-1dc2-4162-8a48-e9d5f27c62cd" />
+
 
 ## Overview
 This case study analyzes customer purchasing behavior and the impact of a
