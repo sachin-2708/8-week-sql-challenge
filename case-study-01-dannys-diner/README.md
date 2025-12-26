@@ -20,6 +20,16 @@ loyalty program using transactional sales data.
 - Membership-based logic
 - Points calculation with conditional rules
 
+## Case Study Questions & Solutions
+1. What is the total amount each customer spent at the restaurant?
+Solution:
+```sql
+select s.customer_id, sum(m.price) as total_spent
+from sales s
+join menu m on m.product_id = s.product_id
+group by s.customer_id
+
+
 ## Bonus Work
 Beyond answering the questions, I designed a reusable SQL view to model:
 - Member vs non-member purchases
