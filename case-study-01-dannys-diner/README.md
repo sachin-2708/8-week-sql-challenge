@@ -28,7 +28,7 @@ select s.customer_id, sum(m.price) as total_spent
 from sales s
 join menu m on m.product_id = s.product_id
 group by s.customer_id
-
+```
 
 ## Bonus Work
 Beyond answering the questions, I designed a reusable SQL view to model:
