@@ -11,6 +11,10 @@ loyalty program using transactional sales data.
 - menu
 - members
 
+## Entity Relations Diagram
+<img width="900" height="437" alt="image" src="https://github.com/user-attachments/assets/d1701c73-5787-4881-9dce-2f855a234c3a" />
+
+
 ## Key Concepts Practiced
 - Customer-level aggregation
 - Window functions for ranking
