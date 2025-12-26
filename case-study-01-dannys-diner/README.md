@@ -30,6 +30,7 @@ join menu m on m.product_id = s.product_id
 group by s.customer_id
 ```
 Output:
+
 <img width="220" height="112" alt="image" src="https://github.com/user-attachments/assets/8f07d575-6536-4bae-b621-47bf5033dbff" />
 
 
