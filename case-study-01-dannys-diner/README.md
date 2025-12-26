@@ -21,7 +21,7 @@ loyalty program using transactional sales data.
 - Points calculation with conditional rules
 
 ## Case Study Questions & Solutions
-1. What is the total amount each customer spent at the restaurant?
+Q1. What is the total amount each customer spent at the restaurant?
 Solution:
 ```sql
 select s.customer_id, sum(m.price) as total_spent
@@ -29,6 +29,9 @@ from sales s
 join menu m on m.product_id = s.product_id
 group by s.customer_id
 ```
+Output:
+<img width="220" height="112" alt="image" src="https://github.com/user-attachments/assets/8f07d575-6536-4bae-b621-47bf5033dbff" />
+
 
 ## Bonus Work
 Beyond answering the questions, I designed a reusable SQL view to model:
