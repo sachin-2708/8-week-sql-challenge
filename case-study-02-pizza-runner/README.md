@@ -1,4 +1,4 @@
-# 8 Week SQL Challenge – Case Study 2: Pizza Runner 🍕
+# Case Study 2: Pizza Runner 🍕
 
 ## Overview
 This case study is part of the **8 Week SQL Challenge by Danny Ma** and focuses on analyzing operational and customer order data for a pizza delivery business called **Pizza Runner**.
