@@ -209,6 +209,7 @@ join menu m on s.product_id = m.product_id
 group by s.customer_id
 ```
 Output:
+
 <img width="200" height="102" alt="image" src="https://github.com/user-attachments/assets/c26f32bf-b481-4652-bd6a-bf5543a583e8" />
 
 ---------------------------------------------------------------------------------
@@ -231,6 +232,7 @@ else price*10 end) as points
  order by customer_id
 ```
 Output:
+
 <img width="202" height="77" alt="image" src="https://github.com/user-attachments/assets/2423464e-4b5f-4733-884d-2dd4c1ba3a2e" />
 
 Additionally if sushi get 4x during first week after joining then the query changes slightly
@@ -250,6 +252,7 @@ group by customer_id
 order by customer_id
 ```
 Output:
+
 <img width="223" height="82" alt="image" src="https://github.com/user-attachments/assets/6a6df8c6-7a7e-408d-83b1-f300f8c48d64" />
 
 ---------------------------------------------------------------------------
@@ -259,6 +262,24 @@ Beyond answering the questions, I designed a reusable SQL view to model:
 - Member vs non-member purchases
 - Correct ranking reset after membership
 - NULL rankings for non-member transactions
+
+Danny wanted to join all things and recreate the following table:
+|customer_id |order_date |product_name |price	member
+|A |2021-01-01 |curry	|15 	|N
+A	2021-01-01	sushi	10	N
+A	2021-01-07	curry	15	Y
+A	2021-01-10	ramen	12	Y
+A	2021-01-11	ramen	12	Y
+A	2021-01-11	ramen	12	Y
+B	2021-01-01	curry	15	N
+B	2021-01-02	curry	15	N
+B	2021-01-04	sushi	10	N
+B	2021-01-11	sushi	10	Y
+B	2021-01-16	ramen	12	Y
+B	2021-02-01	ramen	12	Y
+C	2021-01-01	ramen	12	N
+C	2021-01-01	ramen	12	N
+C	2021-01-07	ramen	12	N
 
 ## Edge Cases Considered
 - Multiple purchases on the same date
