@@ -8,6 +8,7 @@ This case study is part of the **8 Week SQL Challenge by Danny Ma** and focuses 
 <img width="962" height="504" alt="image" src="https://github.com/user-attachments/assets/138d2844-4c7d-4312-b7e7-382eff2b0f75" />
 
 
+
 The objective is to clean messy raw data and answer business-driven questions related to:
 - Customer ordering behaviour
 - Runner delivery performance
