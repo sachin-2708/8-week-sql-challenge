@@ -33,6 +33,18 @@ Output:
 
 <img width="220" height="112" alt="image" src="https://github.com/user-attachments/assets/8f07d575-6536-4bae-b621-47bf5033dbff" />
 
+------------------------------------------------------------------------------
+Q2. How many days has each customer visited the restaurant?
+Solution:
+```sql
+select customer_id, count(distinct order_date) as visted_days
+from sales
+group by customer_id
+```
+Output:
+
+<img width="220" height="110" alt="image" src="https://github.com/user-attachments/assets/5a61ad8a-59e2-4ae0-b920-71421370d194" />
+
 
 ## Bonus Work
 Beyond answering the questions, I designed a reusable SQL view to model:
