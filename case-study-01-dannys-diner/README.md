@@ -45,6 +45,32 @@ Output:
 
 <img width="220" height="110" alt="image" src="https://github.com/user-attachments/assets/5a61ad8a-59e2-4ae0-b920-71421370d194" />
 
+------------------------------------------------------------------------------
+Q3. What was the first item from the menu purchased by each customer?
+Solution:
+```sql
+with first_order as
+(select customer_id, min(order_date) f_order 
+from sales
+group by customer_id)
+
+select distinct s.customer_id, m.product_name, s.order_date
+from sales s
+join first_order f on f.customer_id = s.customer_id and s.order_date = f.f_order
+join menu m on m.product_id = s.product_id
+
+# OR (correlations subquery approach)
+
+select distinct s1.customer_id, m.product_name
+from sales s1
+join menu m on s1.product_id = m.product_id
+where order_date = 
+(select min(s2.order_date)
+from sales s2
+where s1.customer_id = s2.customer_id)
+```
+Output:
+<img width="330" height="115" alt="image" src="https://github.com/user-attachments/assets/b3092fab-9d91-472d-84c8-939857fc6bf8" />
 
 ## Bonus Work
 Beyond answering the questions, I designed a reusable SQL view to model:
