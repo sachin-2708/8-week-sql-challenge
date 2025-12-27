@@ -1,8 +1,12 @@
 # Case Study 2: Pizza Runner 🍕
 <img width="1080" height="1080" alt="casestudy2" src="https://github.com/user-attachments/assets/f10b8542-5f56-4a2b-8a48-5906ac3e5b25" />
 
-## Overview
+## Business Task 
 This case study is part of the **8 Week SQL Challenge by Danny Ma** and focuses on analyzing operational and customer order data for a pizza delivery business called **Pizza Runner**.
+
+## Entity Relationship Diagram
+<img width="962" height="504" alt="image" src="https://github.com/user-attachments/assets/138d2844-4c7d-4312-b7e7-382eff2b0f75" />
+
 
 The objective is to clean messy raw data and answer business-driven questions related to:
 - Customer ordering behaviour
