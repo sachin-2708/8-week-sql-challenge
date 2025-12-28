@@ -5,7 +5,7 @@
       - Converting 'null' and '' in exclusions and extras to null.
 
   ```sql
-  create view vw_customer_orders_clean as
+create view vw_customer_orders_clean as
 select 
 	order_id,
 	customer_id,
