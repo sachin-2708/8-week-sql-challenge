@@ -76,9 +76,81 @@ Conclusion: Although more pizzas take more time to prep, there is no direct corr
 
 -------------------------------------
 Q4 What was the average distance travelled for each customer?
-What was the difference between the longest and shortest delivery times for all orders?
-What was the average speed for each runner for each delivery and do you notice any trend for these values?
-What is the successful delivery percentage for each runner?
+Solution:
+```sql
+with dist as
+(select c.order_id, c.customer_id, max(r.distance) as distance
+from vw_customer_orders_clean c
+join vw_runner_orders_clean r on r.order_id = c.order_id 
+where r.cancellation is null
+group by c.order_id, c.customer_id)
 
+select customer_id, avg(distance) as avg_distance
+from dist
+group by customer_id;
+```
+Output:
 
+<img width="232" height="137" alt="image" src="https://github.com/user-attachments/assets/6f4b0e91-6cff-4e2c-802f-49f0a4fdb2eb" />
+
+Another (wrong) approach -- because this fails in customer_id 102 as it has 3 distances but 1st two distances are from the same order.
+```sql
+select c.customer_id, round(avg(distance),2) as avg_dist
+from vw_customer_orders_clean c
+join vw_runner_orders_clean r on r.order_id = c.order_id 
+where r.cancellation is null
+group by c.customer_id
+```
+Output:
+
+<img width="201" height="142" alt="image" src="https://github.com/user-attachments/assets/7ab51207-9f59-4859-8448-741a6f0fd786" />
+
+As seen, customer_id 102 has different avg_distance. (First Approach is preferrable here)
+
+---------------------------------------------
+Q5 What was the difference between the longest and shortest delivery times for all orders?
+Solution:
+```sql
+select max(duration) as longest_time, 
+		min(duration) as shortest_time,
+        max(duration) - min(duration) as diff
+from vw_customer_orders_clean c
+join vw_runner_orders_clean r on r.order_id = c.order_id 
+where r.cancellation is null
+```
+Output:
+
+<img width="290" height="57" alt="image" src="https://github.com/user-attachments/assets/4da1433b-7531-43ef-ad11-c39d722c773f" />
+
+---------------------------------------------
+Q6 What was the average speed for each runner for each delivery and do you notice any trend for these values?
+Solution:
+```sql
+select order_id, runner_id, distance as distance_km, duration as duration_min, round((distance*60/duration),1) as speed_kmph,
+round(avg(distance*60/duration)over(partition by runner_id),2) as avg_runner_speed
+from vw_runner_orders_clean
+where cancellation is null
+order by runner_id, speed_kmph
+```
+Output:
+
+<img width="616" height="205" alt="image" src="https://github.com/user-attachments/assets/85d308e7-fc6b-49ef-a581-69d06b48f6db" />
+
+Conclusion: Runner 1 has consistent speed for delivery, runner 2 has variable speed and runner 3 has only 1 delivery
+
+---------------------------------------------
+Q7 What is the successful delivery percentage for each runner?
+Solution:
+```sql
+select r1.runner_id, 
+ifnull(round(100.0*sum(case when r.cancellation is null then 1 else 0 end)/count(r.runner_id),2),"no delivery") as delivery_perc
+from runners r1
+left join vw_runner_orders_clean r on r.runner_id = r1.runner_id
+group by runner_id
+```
+Output:
+
+<img width="217" height="115" alt="image" src="https://github.com/user-attachments/assets/96247c64-1d88-4a87-a109-edfc606ff849" />
+
+------------------------------------------------
 
