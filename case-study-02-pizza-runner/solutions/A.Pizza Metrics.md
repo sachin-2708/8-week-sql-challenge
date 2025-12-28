@@ -4,7 +4,7 @@
 - Create a view for customer_orders table which could be used for ready reference.
       - Converting 'null' and '' in exclusions and extras to null.
 
-  ```sql
+```sql
 create view vw_customer_orders_clean as
 select 
 	order_id,
@@ -51,6 +51,7 @@ select count(*) as pizza_ordered
 from vw_customer_orders_clean
 ```
 Output:
+
 <img width="143" height="56" alt="image" src="https://github.com/user-attachments/assets/3c315a7f-ada8-47d3-9e52-ae7250f8cab9" />
 
 -----------------------
