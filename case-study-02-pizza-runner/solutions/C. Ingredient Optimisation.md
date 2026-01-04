@@ -30,7 +30,7 @@ Output:
 <img width="622" height="78" alt="image" src="https://github.com/user-attachments/assets/bfe0b638-8c29-4080-83ec-be0d1fd2e449" />
 
 -------------------------------------
-Q2: What was the most commonly added extra?
+Q2. What was the most commonly added extra?
 Solution:
 Used recursive CTE to split the extras column in the vw_customer_orders_clean view to normalise the column.
 ```sql
@@ -58,7 +58,7 @@ Output:
 <img width="243" height="101" alt="image" src="https://github.com/user-attachments/assets/81a96e7b-d7ba-46aa-8060-a44bcdb75681" />
 
 ----------------------------------------
-Q3: What was the most common exclusion?
+Q3. What was the most common exclusion?
 Solution:
 ```sql
 with recursive exclusions_split as
@@ -86,7 +86,7 @@ Output:
 
 ---------------------------------------------------
 
-Q4: Generate an order item for each record in the customers_orders table in the format of one of the following:
+Q4. Generate an order item for each record in the customers_orders table in the format of one of the following:
 Meat Lovers
 Meat Lovers - Exclude Beef
 Meat Lovers - Extra Bacon
@@ -154,7 +154,7 @@ Output:
 <img width="717" height="336" alt="image" src="https://github.com/user-attachments/assets/1a143218-6edc-4958-af0f-fe0a6de80270" />
 
 ---------------------------------------
-Q5: Generate an alphabetically ordered comma separated ingredient list for each pizza order from the customer_orders table and add a 2x in front of any relevant ingredients
+Q5. Generate an alphabetically ordered comma separated ingredient list for each pizza order from the customer_orders table and add a 2x in front of any relevant ingredients
 For example: "Meat Lovers: 2xBacon, Beef, ... , Salami"
 Solution:
 ```sql
@@ -236,7 +236,7 @@ Output:
 <img width="727" height="332" alt="image" src="https://github.com/user-attachments/assets/66f70439-9687-412f-a70a-89629ac15be3" />
 
 ---------------------------------------------
-Q6: What is the total quantity of each ingredient used in all delivered pizzas sorted by most frequent first?
+Q6. What is the total quantity of each ingredient used in all delivered pizzas sorted by most frequent first?
 Solution:
 ```sql
 with recursive base as
