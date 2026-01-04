@@ -1,7 +1,7 @@
 ## B. Runner and Customer Experience
 
 
-Q1 How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)
+Q1. How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)
 Solution:
 ```sql
 select week(registration_date) as week_num, count(*) as no_of_runnners_signed
@@ -23,7 +23,7 @@ Output:
 <img width="280" height="97" alt="image" src="https://github.com/user-attachments/assets/f0b6703e-750f-4f75-a49d-28a3ea69292a" />
 
 -------------------------------------
-Q2 What was the average time in minutes it took for each runner to arrive at the Pizza Runner HQ to pickup the order?
+Q2. What was the average time in minutes it took for each runner to arrive at the Pizza Runner HQ to pickup the order?
 Solution:
 ```sql
 select r1.runner_id, 
@@ -39,7 +39,7 @@ Output:
 <img width="308" height="122" alt="image" src="https://github.com/user-attachments/assets/d0f6b3b9-fc70-4a6a-9fa7-23cf2662674f" />
 
 ----------------------------------------
-Q3 Is there any relationship between the number of pizzas and how long the order takes to prepare?
+Q3. Is there any relationship between the number of pizzas and how long the order takes to prepare?
 Solution:
 ```sql
 with pizza_prep as
@@ -75,7 +75,7 @@ Output:
 Conclusion: Although more pizzas take more time to prep, there is no direct correlation as a few single pizzas are taking longer to prep as well. But 2 pizza's take 6 mins more than 1 pizza.
 
 -------------------------------------
-Q4 What was the average distance travelled for each customer?
+Q4. What was the average distance travelled for each customer?
 Solution:
 ```sql
 with dist as
@@ -108,7 +108,7 @@ Output:
 As seen, customer_id 102 has different avg_distance. (First Approach is preferrable here)
 
 ---------------------------------------------
-Q5 What was the difference between the longest and shortest delivery times for all orders?
+Q5. What was the difference between the longest and shortest delivery times for all orders?
 Solution:
 ```sql
 select max(duration) as longest_time, 
@@ -123,7 +123,7 @@ Output:
 <img width="290" height="57" alt="image" src="https://github.com/user-attachments/assets/4da1433b-7531-43ef-ad11-c39d722c773f" />
 
 ---------------------------------------------
-Q6 What was the average speed for each runner for each delivery and do you notice any trend for these values?
+Q6. What was the average speed for each runner for each delivery and do you notice any trend for these values?
 Solution:
 ```sql
 select order_id, runner_id, distance as distance_km, duration as duration_min, round((distance*60/duration),1) as speed_kmph,
@@ -139,7 +139,7 @@ Output:
 Conclusion: Runner 1 has consistent speed for delivery, runner 2 has variable speed and runner 3 has only 1 delivery
 
 ---------------------------------------------
-Q7 What is the successful delivery percentage for each runner?
+Q7. What is the successful delivery percentage for each runner?
 Solution:
 ```sql
 select r1.runner_id, 
